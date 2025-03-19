@@ -1,5 +1,6 @@
 body{
     background: linear-gradient(to right , dodgerblue  , rgb(189, 2, 226));
+    height: auto;
 }
 .navbar{
     width: 97.6%;

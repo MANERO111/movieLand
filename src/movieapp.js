@@ -24,7 +24,7 @@ function App(){
         var [sear,setSearch] = useState('')
         useEffect(()=>{
             if(sear!==""){
-                fetch(`http://www.omdbapi.com/?s=${sear}&apikey=148f7e34`)
+                fetch(`https://www.omdbapi.com/?s=${sear}&apikey=148f7e34`)
                 .then(rep=>rep.json())
                 .then((d)=> setdata(d))
                 .catch((e)=>console.error(e))
@@ -39,7 +39,6 @@ function App(){
                         { sear!=="" && data["Response"] ==="True" ? data["Search"].map((item)=><Fil p={item.Poster} fil={item}> </Fil>) : <h1> {data.Error} </h1> }
                     </div>
                 </div>
-                
             </>
         )
     }
@@ -89,6 +88,7 @@ function App(){
     }
     return(
         <>
+            <div className="all">
                 <div className="navbar">
                     <h1 className="logo">MOVIELAND</h1>
                     <div className="watchedlist">
@@ -100,6 +100,7 @@ function App(){
                 <div className="container">
                     {choice ==="towatch" ?  <div className="fc"><Towatch /></div> : choice ==="watched" ?<div className="fc"><Watched /></div> : <Add />}
                 </div>  
+            </div>
         </>
     )
 }
