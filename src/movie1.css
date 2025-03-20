@@ -1,0 +1,259 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  background-color: rgba(15, 23, 42, 0.9);
+  position: fixed;
+  top: 0;
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  color: #e94560;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+}
+
+.watchedlist {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.w {
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 15px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.w::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #e94560;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.w:hover {
+  color: #e94560;
+  cursor: pointer;
+}
+
+.w:hover::after {
+  width: 80%;
+}
+
+.add {
+  background-color: #e94560;
+  color: white;
+  border: 0;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+  width: 70px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.3);
+}
+
+.add:hover {
+  background-color: #d64155;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(233, 69, 96, 0.4);
+  cursor: pointer;
+}
+
+/* Container and content */
+.container {
+  margin-top: 90px;
+  padding: 20px;
+}
+
+/* Search input */
+.inputs {
+  width: 400px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  margin: 20px auto;
+  font-size: 16px;
+  padding: 0 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  display: block;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.inputs:focus {
+  border-color: #e94560;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+}
+
+.inputs::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Film container */
+.fc {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  justify-content: center;
+}
+
+/* Film card */
+.film {
+  background-color: rgba(30, 41, 59, 0.7);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.film:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.poster {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-bottom: 3px solid #e94560;
+}
+
+.yb {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.yb h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.yb h5 {
+  font-size: 14px;
+  color: #e94560;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+.watched {
+  padding: 8px 15px;
+  color: white;
+  background-color: #0f3460;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  margin-right: 8px;
+  transition: all 0.3s ease;
+}
+
+.watched:hover {
+  background-color: #e94560;
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 15px;
+    height: 60px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .watchedlist {
+    gap: 10px;
+  }
+
+  .w {
+    font-size: 14px;
+    padding: 0 8px;
+  }
+
+  .add {
+    width: 60px;
+    font-size: 14px;
+  }
+
+  .inputs {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .fc {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .poster {
+    height: 320px;
+  }
+}
+
+/* Animation for cards loading */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.film {
+  animation: fadeIn 0.5s ease forwards;
+}
